@@ -1,0 +1,29 @@
+<html>
+    <script src="https://connect.rbcpayplan.com/sdk.js"></script>
+
+      <div class="bread-promo one" id="bread-placement-1">Low Monthly Payments. Learn More</div>
+      <script>
+       
+       var placements = [
+          {
+            allowCheckout: false,
+            domID: "bread-placement-1",
+          },
+          {
+            allowCheckout: false,
+            domID: "bread-placement-2",
+          },
+        ];
+
+        RBCPayPlan.setup({
+          integrationKey: "e58caaf3-dec8-4eb0-9495-a5f5ff440432",
+        });
+
+        RBCPayPlan.on("INSTALLMENT:APPLICATION_CHECKOUT", () => {});
+
+        RBCPayPlan.on("INSTALLMENT:APPLICATION_DECISIONED", () => {});
+
+        RBCPayPlan.registerPlacements(placements);
+      
+        </script>
+  </html>
