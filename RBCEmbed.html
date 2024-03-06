@@ -1,29 +1,36 @@
-<html>
-    <script src="https://connect.rbcpayplan.com/sdk.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuotedTech</title>
+  <script src="https://connect.rbcpayplan.com/sdk.js"></script>
+</head>
+<body>
+  <div class="bread-promo one" id="bread-placement-1">Low Monthly Payments. Learn More</div>
+  <script>
+   
+   var placements = [
+      {
+        allowCheckout: false,
+        domID: "bread-placement-1",
+      },
+      {
+        allowCheckout: false,
+        domID: "bread-placement-2",
+      },
+    ];
 
-      <div class="bread-promo one" id="bread-placement-1">Low Monthly Payments. Learn More</div>
-      <script>
-       
-       var placements = [
-          {
-            allowCheckout: false,
-            domID: "bread-placement-1",
-          },
-          {
-            allowCheckout: false,
-            domID: "bread-placement-2",
-          },
-        ];
+    RBCPayPlan.setup({
+      integrationKey: "e58caaf3-dec8-4eb0-9495-a5f5ff440432",
+    });
 
-        RBCPayPlan.setup({
-          integrationKey: "e58caaf3-dec8-4eb0-9495-a5f5ff440432",
-        });
+    RBCPayPlan.on("INSTALLMENT:APPLICATION_CHECKOUT", () => {});
 
-        RBCPayPlan.on("INSTALLMENT:APPLICATION_CHECKOUT", () => {});
+    RBCPayPlan.on("INSTALLMENT:APPLICATION_DECISIONED", () => {});
 
-        RBCPayPlan.on("INSTALLMENT:APPLICATION_DECISIONED", () => {});
-
-        RBCPayPlan.registerPlacements(placements);
-      
-        </script>
-  </html>
+    RBCPayPlan.registerPlacements(placements);
+  
+    </script>
+</body>
+</html>
